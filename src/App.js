@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+function App({title, year, imdbRating, smallPoster}) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+    <li className="search-results__item movie col-sm-4 mb-4">
+    <div className="card">
+      <img className="movie__poster card-img-top" src={smallPoster} alt={title} width="300" height="200"/>
+
+      <div className="card-body">
+        <h3 className="movie__title h5">{title}</h3>
+        <p className="card-text">
+          {/* <img src="img/calendar.svg" alt="Calendar" width="25" height="25"/> */}
+          <span className="movie__year">{year}</span>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+        <p className="card-text">
+          {/* <img src="img/star.svg" alt="Star" width="25" height="25"/> */}
+          <span className="movie__rating">{imdbRating}</span>
+        </p>
+
+        <p className="card-text d-flex flex-column flex-md-row flex-wrap justify-content-around">
+          <a className="movie__trailer-link m-1 m-xl-0 btn btn-outline-primary btn-sm" href="" target="_blank">Watch trailer</a>
+          <button className="m-1 m-xl-0 btn btn-outline-info btn-sm js-movie-modal-opener" type="button" data-toggle="modal" data-target="#movie-info-modal">More info</button>
+          <button className="m-1 m-xl-0 btn btn-outline-success btn-sm js-movie-bookmark" type="button">Bookmark</button>
+        </p>
+      </div>
     </div>
+    </li>
   );
 }
 
